@@ -107,7 +107,7 @@
     ];
 
     const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    let timeZoneValue: string = '';
+    let timeZoneValue: string = localTimeZone;
     let previewLocalValue: boolean = false;
 
     let timeTable: number[] = [];
@@ -157,6 +157,9 @@
         if (urlTimeZone) {
             timeZoneValue = urlTimeZone;
             timeZone.set(urlTimeZone);
+        } else {
+            timeZoneValue = localTimeZone;
+            timeZone.set(localTimeZone);
         }
         const urlTimeTable = urlParams.get("table");
         if (urlTimeTable) {
