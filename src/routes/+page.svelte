@@ -157,9 +157,6 @@
         if (urlTimeZone) {
             timeZoneValue = urlTimeZone;
             timeZone.set(urlTimeZone);
-        } else {
-            timeZoneValue = localTimeZone;
-            timeZone.set(localTimeZone);
         }
         const urlTimeTable = urlParams.get("table");
         if (urlTimeTable) {
@@ -205,6 +202,7 @@
     <h1>Availability Scheduler</h1>
     <span>Pick a time zone and schedule that works for you.</span>
     <span>When you're done, click "Copy URL" and return to the form.</span>
+    <span><i>Tip: On mobile, swipe on the hour numbers to scroll.</i></span>
     <Input type="select" id="timeZone" bind:value={timeZoneValue} on:change={onTimeZoneChange}>
         {#each timezones as tz}
             <option value={tz.value}>{tz.viewValue}</option>
