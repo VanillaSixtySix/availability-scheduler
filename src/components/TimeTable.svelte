@@ -218,6 +218,7 @@
         width: 100%;
         border-collapse: collapse;
         user-select: none;
+        -webkit-user-select: none;
     }
 
     table td,
