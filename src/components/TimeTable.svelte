@@ -26,8 +26,8 @@
         } else {
             // For touch events, get the element from the point touched
             target = document.elementFromPoint(
-                (event as TouchEvent).touches[0].clientX,
-                (event as TouchEvent).touches[0].clientY
+                (event as any).touches[0].clientX,
+                (event as any).touches[0].clientY
             ) as HTMLElement;
         }
         if (target == null) return -1;
@@ -36,7 +36,7 @@
     }
 
     function startDrag(event: MouseEvent | TouchEvent) {
-        if (event instanceof TouchEvent) {
+        if (event.type === 'mousedown') {
             isTouchEvent = true;
             setTimeout(() => {
                 isTouchEvent = false;
@@ -59,7 +59,7 @@
     function endDrag(event: MouseEvent | TouchEvent) {
         if (!isDragging) return;
 
-        if (event instanceof TouchEvent) {
+        if (event.type === 'mouseup') {
             isTouchEvent = true;
             setTimeout(() => {
                 isTouchEvent = false;
@@ -83,7 +83,7 @@
     }
 
     function drag(event: MouseEvent | TouchEvent) {
-        if (event instanceof TouchEvent) {
+        if (event.type === 'mousemove') {
             isTouchEvent = true;
             setTimeout(() => {
                 isTouchEvent = false;
@@ -137,7 +137,7 @@
         // register touch events for table dragging
         table!.addEventListener("touchstart", startDrag);
         table!.addEventListener("touchend", endDrag);
-        table!.addEventListener("touchmove", (event: TouchEvent) => {
+        table!.addEventListener("touchmove", (event: any) => {
             if (isDragging) {
                 event.preventDefault();
             }
