@@ -45,6 +45,10 @@
             viewValue: "UTC-3 - Brasília Standard Time (BRT)",
         },
         {
+            value: "America/Noronha",
+            viewValue: "UTC-2 - Fernando de Noronha Time (FNT)",
+        },
+        {
             value: "Atlantic/Cape_Verde",
             viewValue: "UTC-1 - Cape Verde Time (CVT)",
         },
@@ -55,6 +59,10 @@
         {
             value: "Europe/Paris",
             viewValue: "UTC+1 - Central European Time (CET)",
+        },
+        {
+            value: "Europe/Athens",
+            viewValue: "UTC+2 - Eastern European Time (EET)",
         },
         {
             value: "Europe/Moscow",
